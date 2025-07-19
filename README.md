@@ -32,7 +32,7 @@ A key architectural choice was to consolidate all business logic, data models, a
 
 ### 2. Database Integration Strategy
 
-The data access layer, including the large `DbContext`, was created by **reverse-engineering an existing and database**.
+The data access layer, including the large `DbContext`, was created by **reverse-engineering an existing database**.
 
 * **Rationale**: Working with established, large-scale databases is a common scenario. This pragmatic approach was taken to ensure the application correctly mapped to the existing schema and to avoid the time-intensive and error-prone process of creating hundreds of data models by hand.
 
