@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+namespace Shared_Static_Class.Data;
+
+[Table("DEMANDA_CAMPOS_CHAMADO", Schema = "Demandas")]
+public partial class DEMANDA_CAMPOS_CHAMADO
+{
+    [Key]
+    public int ID { get; set; }
+    public int ID_CHAMADO { get; set; }
+
+    [Required]
+    [Unicode(false)]
+    public string CAMPO { get; set; }
+
+    [Required]
+    [Unicode(false)]
+    public string VALOR { get; set; }
+
+
+    [ForeignKey("ID_CHAMADO")]
+    public virtual DEMANDA_CHAMADO DEMANDANav { get; set; }
+}

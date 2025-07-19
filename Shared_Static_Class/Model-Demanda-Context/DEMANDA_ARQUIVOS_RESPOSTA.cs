@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+namespace Shared_Static_Class.Data;
+
+[Table("DEMANDA_ARQUIVOS_RESPOSTA", Schema = "Demandas")]
+public partial class DEMANDA_ARQUIVOS_RESPOSTA
+{
+    [Key]
+    public int ID { get; set; }
+    public int ID_RESPOSTA { get; set; }
+    [Unicode(false)]
+    public string NOME_CAMPO { get; set; }
+    [Column(TypeName = "varbinary(max)")]
+    public byte[] ARQUIVO { get; set; }
+
+    [StringLength(10)]
+    [Unicode(false)]
+    public string EXT_ARQUIVO { get; set; }
+
+    [ForeignKey("ID_RESPOSTA")]
+    public virtual DEMANDA_CHAMADO_RESPOSTA RESPOSTANav { get; set; }
+}
